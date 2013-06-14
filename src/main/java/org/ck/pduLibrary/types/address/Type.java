@@ -1,16 +1,27 @@
 package org.ck.pduLibrary.types.address;
 
-/*
- * 0 0 0 Unknown
- * 0 0 1 International number
- * 0 1 0 National number
- * 0 1 1 Network specific number
- * 1 0 0 Subscriber number
- * 1 0 1 Alphanumeric
- * 1 1 0 Abbreviated number
- * 1 1 1 Reserved for extension 
- */
 public enum Type
 {
-	UNKOWN, INTERNATIONAL, NATIONAL, NETWORK_SPECIFIC, SUBSCRIBER, ALPHANUMERIC, ABBREVIATED, RESERVED;
+	
+	UNKOWN(0x0),
+	INTERNATIONAL(0x1),
+	NATIONAL(0x2),
+	NETWORK_SPECIFIC(0x3),
+	SUBSCRIBER(0x4),
+	ALPHANUMERIC(0x5),
+	ABBREVIATED(0x6),
+	RESERVED(0x7);
+	
+	private Integer value;
+	
+	Type(Integer value)
+	{
+		this.value = value;
+	}
+	
+	public Integer getValue()
+	{
+		return value;
+	}
+	
 }

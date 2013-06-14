@@ -1,16 +1,27 @@
 package org.ck.pduLibrary.types.address;
 
-/*
- * 0 0 0 0 Unknown
- * 0 0 0 1 ISDN/telephone numbering plan
- * 0 0 1 1 Data numbering plan (X.121)
- * 0 1 0 0 Telex numbering plan
- * 1 0 0 0 National numbering plan 
- * 1 0 0 1 Private numbering plan
- * 1 0 1 0 ERMES numbering plan
- * 1 1 1 1 Reserved for extension 
- */
 public enum NumberingPlan
 {
-	UNKNOWN, ISDN, DATA, TELEX, NATIONAL, PRIVATE, ERMES, RESERVED;
+	
+	UNKNOWN(0x0),
+	ISDN(0x1),
+	DATA(0x3),
+	TELEX(0x4),
+	NATIONAL(0x8),
+	PRIVATE(0x9),
+	ERMES(0xA),
+	RESERVED(0xF);
+	
+	private Integer value;
+	
+	NumberingPlan(Integer value)
+	{
+		this.value = value;
+	}
+	
+	public Integer getValue()
+	{
+		return value;
+	}
+	
 }

@@ -1,11 +1,13 @@
 package org.ck.pduLibrary;
 
 import org.ck.pduLibrary.types.Address;
+import org.ck.pduLibrary.types.UserData;
 
-public class Pdu
+public abstract class Pdu
 {
 	
 	private Address serviceCentreAddress;
+	private UserData userData;
 	
 	public Address getServiceCentreAddress()
 	{
@@ -20,6 +22,11 @@ public class Pdu
 		}
 		
 		return null;
+	}
+	
+	public UserData getUserData()
+	{
+		return userData;
 	}
 	
 }
