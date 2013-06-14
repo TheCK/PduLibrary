@@ -1,10 +1,12 @@
 package org.ck.pduLibrary.types.userData.informationElement;
 
+import org.ck.pduLibrary.annotations.InfoElement;
 import org.ck.pduLibrary.types.userData.InformationElement;
 
+@InfoElement(indication = 0x08)
 public class Concatenation16BitElement extends InformationElement
 {
-	
+
 	private final static Integer ELEMENT_LENGTH = 4;
 	private final static Boolean IS_REPEATABLE = false;
 
@@ -13,16 +15,16 @@ public class Concatenation16BitElement extends InformationElement
 	{
 		return ELEMENT_LENGTH;
 	}
-	
+
 	@Override
 	public Boolean isRepeatable()
 	{
 		return IS_REPEATABLE;
 	}
-	
+
 	public static Concatenation16BitElement valueOf(byte[] informationElement)
 	{
-		//TODO parse bytes to fill values
+		// TODO parse bytes to fill values
 		return new Concatenation16BitElement();
 	}
 
