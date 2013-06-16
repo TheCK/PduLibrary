@@ -1,5 +1,8 @@
 package org.ck.pduLibrary.types.userData.informationElement;
 
+import static org.ck.pduLibrary.util.Util.convertIntegerToUnsignedBytes;
+import static org.ck.pduLibrary.util.Util.convertUnsignedByteToInteger;
+
 import org.ck.pduLibrary.annotations.InfoElement;
 import org.ck.pduLibrary.types.userData.InformationElement;
 
@@ -7,14 +10,35 @@ import org.ck.pduLibrary.types.userData.InformationElement;
 public class EMailHeaderElement extends InformationElement
 {
 
+	private final static Integer ELEMENT_LENGTH = 1;
 	private final static Boolean IS_REPEATABLE = false;
 
-	private byte[] content;
+	private Integer eMailHeaderLengthIndicator;
+
+	public EMailHeaderElement(Integer eMailHeaderLengthIndicator)
+	{
+		checkEMailHeaderLengthIndicator(eMailHeaderLengthIndicator);
+
+		this.eMailHeaderLengthIndicator = eMailHeaderLengthIndicator;
+	}
+
+	private void checkEMailHeaderLengthIndicator(Integer eMailHeaderLengthIndicator)
+	{
+		if (eMailHeaderLengthIndicator < 0 || eMailHeaderLengthIndicator > 255)
+		{
+			throw new IllegalArgumentException("eMailHeaderLengthIndicator out of bounds");
+		}
+	}
+
+	public Integer getEMailHeaderLengthIndicator()
+	{
+		return eMailHeaderLengthIndicator;
+	}
 
 	@Override
 	public Integer getLength()
 	{
-		return content.length;
+		return ELEMENT_LENGTH;
 	}
 
 	@Override
@@ -22,18 +46,26 @@ public class EMailHeaderElement extends InformationElement
 	{
 		return IS_REPEATABLE;
 	}
-	
+
 	@Override
 	public byte[] asByteArray()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		byte[] bytes = new byte[ELEMENT_LENGTH];
+		bytes[0] = convertIntegerToUnsignedBytes(eMailHeaderLengthIndicator)[0];
+
+		return bytes;
 	}
 
 	public static EMailHeaderElement valueOf(byte[] informationElement)
 	{
-		// TODO parse bytes to fill values
-		return new EMailHeaderElement();
+		if (informationElement != null && informationElement.length == ELEMENT_LENGTH)
+		{
+			Integer eMailHeaderLengthIndicator = convertUnsignedByteToInteger(informationElement[0]);
+
+			return new EMailHeaderElement(eMailHeaderLengthIndicator);
+		}
+
+		throw new IllegalArgumentException();
 	}
 
 }

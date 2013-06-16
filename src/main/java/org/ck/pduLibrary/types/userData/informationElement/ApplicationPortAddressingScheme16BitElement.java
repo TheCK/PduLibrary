@@ -101,7 +101,6 @@ public class ApplicationPortAddressingScheme16BitElement extends InformationElem
 					+ convertUnsignedByteToInteger(informationElement[3]);
 
 			return new ApplicationPortAddressingScheme16BitElement(destinationPort, originatorPort);
-
 		}
 
 		throw new IllegalArgumentException();

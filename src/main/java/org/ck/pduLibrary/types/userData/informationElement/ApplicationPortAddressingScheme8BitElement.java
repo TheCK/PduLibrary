@@ -81,7 +81,6 @@ public class ApplicationPortAddressingScheme8BitElement extends InformationEleme
 			Integer originatorPort = convertUnsignedByteToInteger(informationElement[1]);
 
 			return new ApplicationPortAddressingScheme8BitElement(destinationPort, originatorPort);
-
 		}
 
 		throw new IllegalArgumentException();

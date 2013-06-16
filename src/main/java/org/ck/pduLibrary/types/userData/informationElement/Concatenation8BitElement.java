@@ -99,7 +99,6 @@ public class Concatenation8BitElement extends InformationElement
 			Integer currentPart = convertUnsignedByteToInteger(informationElement[2]);
 
 			return new Concatenation8BitElement(referenceNumber, totalParts, currentPart);
-
 		}
 
 		throw new IllegalArgumentException();
