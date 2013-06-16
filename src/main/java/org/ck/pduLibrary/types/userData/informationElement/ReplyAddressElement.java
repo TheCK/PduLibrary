@@ -22,6 +22,13 @@ public class ReplyAddressElement extends InformationElement
 	{
 		return IS_REPEATABLE;
 	}
+	
+	@Override
+	public byte[] asByteArray()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public static ReplyAddressElement valueOf(byte[] informationElement)
 	{

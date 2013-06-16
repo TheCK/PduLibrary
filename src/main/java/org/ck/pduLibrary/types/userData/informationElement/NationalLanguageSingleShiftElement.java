@@ -21,6 +21,13 @@ public class NationalLanguageSingleShiftElement extends InformationElement
 	{
 		return IS_REPEATABLE;
 	}
+	
+	@Override
+	public byte[] asByteArray()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public static NationalLanguageSingleShiftElement valueOf(byte[] informationElement)
 	{

@@ -21,6 +21,13 @@ public class ApplicationPortAddressingScheme16BitElement extends InformationElem
 	{
 		return IS_REPEATABLE;
 	}
+	
+	@Override
+	public byte[] asByteArray()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public static ApplicationPortAddressingScheme16BitElement valueOf(byte[] informationElement)
 	{

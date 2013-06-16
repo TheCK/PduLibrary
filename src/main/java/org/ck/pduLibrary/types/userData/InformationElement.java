@@ -16,10 +16,11 @@ public abstract class InformationElement
 	public abstract Integer getLength();
 
 	public abstract Boolean isRepeatable();
+	
+	public abstract byte[] asByteArray();
 
 	public static InformationElement valueOf(byte[] informationElement)
 	{
-		// TODO acertain type of the information element and return the according type
 		if (informationElement != null && informationElement.length > 0)
 		{
 			Integer identifier = new Integer(informationElement[0]);
