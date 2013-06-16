@@ -18,7 +18,6 @@ public class Concatenation8BitElement extends InformationElement
 	private Integer currentPart;
 
 	public Concatenation8BitElement(Integer referenceNumber, Integer totalParts, Integer currentPart)
-		throws IllegalArgumentException
 	{
 		checkReferenceNumber(referenceNumber);
 		checkTotalParts(totalParts);
@@ -87,7 +86,7 @@ public class Concatenation8BitElement extends InformationElement
 		bytes[0] = convertIntegerToUnsignedBytes(referenceNumber)[0];
 		bytes[1] = convertIntegerToUnsignedBytes(totalParts)[0];
 		bytes[2] = convertIntegerToUnsignedBytes(currentPart)[0];
-		
+
 		return bytes;
 	}
 

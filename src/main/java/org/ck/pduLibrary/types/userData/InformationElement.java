@@ -18,7 +18,7 @@ public abstract class InformationElement
 	public abstract Boolean isRepeatable();
 	
 	public abstract byte[] asByteArray();
-
+	
 	public static InformationElement valueOf(byte[] informationElement)
 	{
 		if (informationElement != null && informationElement.length > 0)

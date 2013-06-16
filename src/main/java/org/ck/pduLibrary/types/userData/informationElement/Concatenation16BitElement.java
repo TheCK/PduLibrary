@@ -22,20 +22,20 @@ public class Concatenation16BitElement extends InformationElement
 		checkReferenceNumber(referenceNumber);
 		checkTotalParts(totalParts);
 		checkCurrentPart(totalParts, currentPart);
-		
+
 		this.referenceNumber = referenceNumber;
 		this.totalParts = totalParts;
 		this.currentPart = currentPart;
 	}
-	
+
 	private void checkReferenceNumber(Integer referenceNumber)
 	{
-		if (referenceNumber < 0 || referenceNumber >= 65536)
+		if (referenceNumber < 0 || referenceNumber > 65535)
 		{
 			throw new IllegalArgumentException("referneceNumber out of bounds");
 		}
 	}
-	
+
 	private void checkTotalParts(Integer totalParts)
 	{
 		if (totalParts < 0 || totalParts > 255)
@@ -43,7 +43,7 @@ public class Concatenation16BitElement extends InformationElement
 			throw new IllegalArgumentException("totalParts out of bounds");
 		}
 	}
-	
+
 	private void checkCurrentPart(Integer totalParts, Integer currentPart)
 	{
 		if (currentPart < 1 || currentPart > 255 || currentPart > totalParts)
@@ -78,7 +78,7 @@ public class Concatenation16BitElement extends InformationElement
 	{
 		return IS_REPEATABLE;
 	}
-	
+
 	@Override
 	public byte[] asByteArray()
 	{
@@ -93,10 +93,10 @@ public class Concatenation16BitElement extends InformationElement
 		{
 			System.arraycopy(referenceBytes, 0, bytes, 0, 2);
 		}
-		
+
 		bytes[2] = convertIntegerToUnsignedBytes(totalParts)[0];
 		bytes[3] = convertIntegerToUnsignedBytes(currentPart)[0];
-		
+
 		return bytes;
 	}
 
@@ -105,7 +105,7 @@ public class Concatenation16BitElement extends InformationElement
 		if (informationElement != null && informationElement.length == ELEMENT_LENGTH)
 		{
 			Integer referenceNumber = (convertUnsignedByteToInteger(informationElement[0]) << 8)
-					+ (convertUnsignedByteToInteger(informationElement[1]));
+					+ convertUnsignedByteToInteger(informationElement[1]);
 			Integer totalParts = convertUnsignedByteToInteger(informationElement[2]);
 			Integer currentPart = convertUnsignedByteToInteger(informationElement[3]);
 

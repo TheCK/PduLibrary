@@ -24,13 +24,13 @@ public class Concatenation16BitElementTest
 	@Test(expected=IllegalArgumentException.class)
 	public void testValueOfInvalidCurrentPart()
 	{
-		Concatenation16BitElement.valueOf(new byte[]{1, 2, 3});
+		Concatenation16BitElement.valueOf(new byte[]{0, 1, 2, 3});
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testValueOfInvalidCurrentPart0()
 	{
-		Concatenation16BitElement.valueOf(new byte[]{1, 2, 0});
+		Concatenation16BitElement.valueOf(new byte[]{0, 1, 2, 0});
 	}
 	
 	@Test
