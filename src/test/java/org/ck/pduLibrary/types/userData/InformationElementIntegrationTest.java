@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.ck.pduLibrary.types.userData.informationElement.Concatenation8BitElement;
 import org.junit.Test;
 
+@SuppressWarnings("static-method")
 public class InformationElementIntegrationTest
 {
 
@@ -14,25 +15,25 @@ public class InformationElementIntegrationTest
 	{
 		assertNull(InformationElement.valueOf(null));
 	}
-	
+
 	@Test
 	public void testEmptyInput()
 	{
-		assertNull(InformationElement.valueOf(new byte[]{}));
+		assertNull(InformationElement.valueOf(new byte[] {}));
 	}
-	
+
 	@Test
 	public void testWithInvalidElement()
 	{
-		assertNull(InformationElement.valueOf(new byte[]{(byte) 0xFF}));
+		assertNull(InformationElement.valueOf(new byte[] { (byte) 0xFF }));
 	}
-	
+
 	@Test
 	public void testWithValidElement()
 	{
-		InformationElement informationElement = InformationElement.valueOf(new byte[]{0x00});
-		
+		InformationElement informationElement = InformationElement.valueOf(new byte[] { 0, 1, 3, 2 });
+
 		assertTrue(Concatenation8BitElement.class.isAssignableFrom(informationElement.getClass()));
 	}
-	
+
 }

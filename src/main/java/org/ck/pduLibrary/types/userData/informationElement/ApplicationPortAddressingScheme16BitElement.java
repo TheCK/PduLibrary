@@ -1,7 +1,7 @@
 package org.ck.pduLibrary.types.userData.informationElement;
 
-import static org.ck.pduLibrary.util.Util.convertIntegerToUnsignedBytes;
-import static org.ck.pduLibrary.util.Util.convertUnsignedByteToInteger;
+import static org.ck.pduLibrary.util.ByteUtil.convertIntegerToUnsignedBytes;
+import static org.ck.pduLibrary.util.ByteUtil.convertUnsignedByteToInteger;
 
 import org.ck.pduLibrary.annotations.InfoElement;
 import org.ck.pduLibrary.types.userData.InformationElement;
@@ -25,7 +25,7 @@ public class ApplicationPortAddressingScheme16BitElement extends InformationElem
 		this.originatorPort = originatorPort;
 	}
 	
-	private void checkDestinationPort(Integer destinationPort)
+	private static void checkDestinationPort(Integer destinationPort)
 	{
 		if (destinationPort < 0 || destinationPort > 65535)
 		{
@@ -33,7 +33,7 @@ public class ApplicationPortAddressingScheme16BitElement extends InformationElem
 		}
 	}
 	
-	private void checkOriginatorPort(Integer originatorPort)
+	private static void checkOriginatorPort(Integer originatorPort)
 	{
 		if (originatorPort < 0 || originatorPort > 65535)
 		{

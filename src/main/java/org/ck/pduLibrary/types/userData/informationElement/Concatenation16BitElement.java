@@ -1,7 +1,7 @@
 package org.ck.pduLibrary.types.userData.informationElement;
 
-import static org.ck.pduLibrary.util.Util.convertIntegerToUnsignedBytes;
-import static org.ck.pduLibrary.util.Util.convertUnsignedByteToInteger;
+import static org.ck.pduLibrary.util.ByteUtil.convertIntegerToUnsignedBytes;
+import static org.ck.pduLibrary.util.ByteUtil.convertUnsignedByteToInteger;
 
 import org.ck.pduLibrary.annotations.InfoElement;
 import org.ck.pduLibrary.types.userData.InformationElement;
@@ -28,7 +28,7 @@ public class Concatenation16BitElement extends InformationElement
 		this.currentPart = currentPart;
 	}
 
-	private void checkReferenceNumber(Integer referenceNumber)
+	private static void checkReferenceNumber(Integer referenceNumber)
 	{
 		if (referenceNumber < 0 || referenceNumber > 65535)
 		{
@@ -36,7 +36,7 @@ public class Concatenation16BitElement extends InformationElement
 		}
 	}
 
-	private void checkTotalParts(Integer totalParts)
+	private static void checkTotalParts(Integer totalParts)
 	{
 		if (totalParts < 0 || totalParts > 255)
 		{
@@ -44,7 +44,7 @@ public class Concatenation16BitElement extends InformationElement
 		}
 	}
 
-	private void checkCurrentPart(Integer totalParts, Integer currentPart)
+	private static void checkCurrentPart(Integer totalParts, Integer currentPart)
 	{
 		if (currentPart < 1 || currentPart > 255 || currentPart > totalParts)
 		{

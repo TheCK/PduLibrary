@@ -3,7 +3,7 @@ package org.ck.pduLibrary.util;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 
-public class Util
+public class ByteUtil
 {
 
 	public static Integer convertUnsignedByteToInteger(byte input)

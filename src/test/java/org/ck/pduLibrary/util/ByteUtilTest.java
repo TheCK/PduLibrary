@@ -5,7 +5,8 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class UtilTest
+@SuppressWarnings("static-method")
+public class ByteUtilTest
 {
 
 	@Test
@@ -15,7 +16,7 @@ public class UtilTest
 		
 		for (Integer i = 0; i <= 255; ++i)
 		{
-			assertEquals(i, Util.convertUnsignedByteToInteger(test++));
+			assertEquals(i, ByteUtil.convertUnsignedByteToInteger(test++));
 		}
 	}
 	
@@ -24,7 +25,7 @@ public class UtilTest
 	{
 		for (Integer i = 0; i < 65536; ++i)
 		{
-			byte[] result = Util.convertIntegerToUnsignedBytes(i);
+			byte[] result = ByteUtil.convertIntegerToUnsignedBytes(i);
 			
 			assertNotNull(result);
 			
@@ -43,8 +44,8 @@ public class UtilTest
 			}
 			else
 			{
-				assertEquals((byte) (int) ((int) i / (int) 256), (byte) result[0]);
-				assertEquals((byte) (int) ((int) i % (int) 256), (byte) result[1]);
+				assertEquals((byte) (i / 256), result[0]);
+				assertEquals((byte) (i % 256), result[1]);
 			}
 		}
 	}

@@ -3,7 +3,7 @@ package org.ck.pduLibrary.types;
 import org.ck.pduLibrary.types.address.NumberingPlan;
 import org.ck.pduLibrary.types.address.Type;
 
-public class Address
+public class Address implements PduType
 {
 
 	private Type type;
@@ -38,6 +38,18 @@ public class Address
 	public void setContent(String content)
 	{
 		this.content = content;
+	}
+
+	public Integer getLength()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public byte[] asByteArray()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

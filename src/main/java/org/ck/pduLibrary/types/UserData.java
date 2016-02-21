@@ -1,5 +1,6 @@
 package org.ck.pduLibrary.types;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.ck.pduLibrary.types.userData.InformationElement;
@@ -7,7 +8,7 @@ import org.ck.pduLibrary.types.userData.InformationElement;
 public class UserData
 {
 
-	private List<InformationElement> userDataHeader;
+	private List<InformationElement> userDataHeader = new ArrayList<InformationElement>();
 	private String stringContent;
 	private byte[] binaryContent;
 	

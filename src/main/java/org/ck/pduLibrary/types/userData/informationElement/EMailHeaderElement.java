@@ -1,7 +1,7 @@
 package org.ck.pduLibrary.types.userData.informationElement;
 
-import static org.ck.pduLibrary.util.Util.convertIntegerToUnsignedBytes;
-import static org.ck.pduLibrary.util.Util.convertUnsignedByteToInteger;
+import static org.ck.pduLibrary.util.ByteUtil.convertIntegerToUnsignedBytes;
+import static org.ck.pduLibrary.util.ByteUtil.convertUnsignedByteToInteger;
 
 import org.ck.pduLibrary.annotations.InfoElement;
 import org.ck.pduLibrary.types.userData.InformationElement;
@@ -22,7 +22,7 @@ public class EMailHeaderElement extends InformationElement
 		this.eMailHeaderLengthIndicator = eMailHeaderLengthIndicator;
 	}
 
-	private void checkEMailHeaderLengthIndicator(Integer eMailHeaderLengthIndicator)
+	private static void checkEMailHeaderLengthIndicator(Integer eMailHeaderLengthIndicator)
 	{
 		if (eMailHeaderLengthIndicator < 0 || eMailHeaderLengthIndicator > 255)
 		{
